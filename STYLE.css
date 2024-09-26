@@ -1,0 +1,91 @@
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: 'Cinzel', serif;
+}
+
+h5, th {
+    font-family: 'Uncial Antiqua', serif;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    color: #e0e0e0;
+}
+
+table {
+    background-color: #1f1f1f;
+    border: 1px solid #444;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #2a2a2a;
+}
+
+.table-striped > tbody > tr:nth-of-type(even) {
+    background-color: #202020;
+}
+
+th {
+    background-color: #3e3e3e;
+    text-transform: uppercase;
+}
+
+td {
+    font-size: 1.1rem;
+}
+
+.modal-content {
+    background-color: #1c1c1c;
+    color: #fff;
+}
+
+.modal-header, .modal-footer {
+    background-color: #2b2b2b;
+    border-bottom: 1px solid #444;
+}
+
+.btn-close {
+    filter: invert(100%);
+}
+
+.btn-secondary {
+    background-color: #333;
+    border-color: #555;
+}
+
+.btn-secondary:hover {
+    background-color: #444;
+}
+
+.table th, .table td {
+    border-color: #555;
+}
+
+td:hover {
+    background-color: #3b3b3b;
+    cursor: pointer;
+}
+
+/* Modal Animation */
+.modal.fade .modal-dialog {
+    transform: scale(0.9);
+    transition: transform 0.3s ease-out;
+}
+
+.modal.show .modal-dialog {
+    transform: scale(1);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 10px;
+    border: 3px solid #1a1a1a;
+}
