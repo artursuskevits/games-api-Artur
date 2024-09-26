@@ -2,29 +2,35 @@ openapi: 3.0.2
 info:
   title: Games-API
   version: 1.0.0
-  description: A brand new API with no content. Go nuts!
+  description: '### This is a Swagger UI for our Games API'
 paths:
   /games:
-    description: ''
     get:
       tags:
         - games
       responses:
         '200':
-          description: Returns a list of games
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GameList'
-      summary: Get a list of all games.
-      description: Returns a list of all games in API
+                type: array
+                items:
+                  type: string
+              examples:
+                List of games:
+                  value:
+                    - Witcher 3
+                    - Cyberpunk 2077
+          description: Returns a list of games
+      summary: Get a list of a games
+      description: Returns a list of games
     post:
       requestBody:
-        description: 'A new game to be created '
+        description: A new game to be created
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/NewGame'
+              $ref: '#/components/schemas/new-game'
         required: true
       tags:
         - new-game
@@ -33,101 +39,97 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NewGame'
+                $ref: '#/components/schemas/new-game'
           description: Game is created
         '400':
           description: One or all params are missing
       summary: Creates a game
       description: Creates a new game
-  /games/{id}:
+  '/games/{id}':
     get:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
       tags:
         - details
-      parameters:
-        - in: path
-          name: id
-          schema:
-            type: integer
-          required: true
-          description: Numeric ID of the game to get
       responses:
         '200':
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Game'
-          description: Returns full details of a given game by ID
+                type: array
+                items:
+                  type: string
+              examples:
+                Full details of a given name:
+                  value:
+                    id: 1
+                    name: Witcher 3
+                    price: 29.99
+          description: Returns full details of a given id game
+        '204':
+          description: No content
         '404':
-          description: Game was not found in games array.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/error'
+              examples:
+                Game /w+ was not found:
+                  value: Game \\w+ was not found in game array
+          description: Error message
+      operationId: id
       summary: Get full details of a game
-      description: Returns full details of a game by its ID
+      description: Returns full details of a given id game
     delete:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/delete-game'
       tags:
         - delete
-      parameters:
-        - in: path
-          name: id
-          schema:
-            type: integer
-          required: true
-          description: Numeric ID of the game to delete
-      responses:
-        '204':
-          description: Game was deleted successfully
-        '404':
-          description: Game not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
+      operationId: id
       summary: Delete game
-      description: Delete a game by its ID
+      description: Deletes game
+    parameters:
+      -
+        name: id
+        in: path
+        required: true
 components:
   schemas:
-    Error:
-      title: Error
+    error:
+      description: ''
       type: object
-      properties:
-        error:
-          type: string
-      example:
-        error: Error message.
-    NewGame:
-      title: NewGame
-      type: object
+    new-game:
+      title: Root Type for new-game
+      description: ''
       required:
         - price
         - name
+      type: object
       properties:
         name:
           type: string
         price:
-          type: number
           format: float
+          type: number
       example:
         name: Tetris
         price: 0.99
-    Game:
-      title: Game
+    delete-game:
+      description: ''
+      required:
+        - id
       type: object
       properties:
         id:
-          type: integer
-        name:
+          description: ''
           type: string
-        price:
-          type: number
-          format: float
       example:
         id: 1
-        name: Witcher 3
-        price: 29.99
-    GameList:
-      title: GameList
-      type: array
-      items:
-        $ref: '#/components/schemas/Game'
