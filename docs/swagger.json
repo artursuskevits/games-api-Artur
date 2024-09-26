@@ -7,6 +7,9 @@
   },
   "paths": {
     "/games": {
+      "get": {}
+    },
+    "/games/:id": {
       "get": {
         "requestBody": {
           "content": {
@@ -14,7 +17,7 @@
           }
         },
         "tags": [
-          "games"
+          "details"
         ],
         "responses": {
           "200": {
@@ -25,21 +28,46 @@
                   "items": {}
                 },
                 "examples": {
-                  "LIst of games": {
-                    "value": [
-                      "Viperr",
-                      "Cyberpunk"
-                    ]
+                  "Full details of a given game": {
+                    "value": "{id:1, name: \"Viperr\", price:3500},"
                   }
                 }
               }
-            }
+            },
+            "description": "Are ok"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            },
+            "description": "Games not found\n"
           }
         },
+        "operationId": "id",
         "summary": "get a list of games",
         "description": "Return a list of all games in API"
       }
     }
   },
-  "components": {}
+  "components": {
+    "schemas": {
+      "error": {
+        "title": "Root Type for error",
+        "description": "",
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "error": "Error!"
+        }
+      }
+    }
+  }
 }
