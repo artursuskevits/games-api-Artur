@@ -78,7 +78,7 @@ h1 {
 
 .container .btn-primary:hover {
     background-color: #005bb5;
-    transform: scale(1.05); 
+    transform: scale(1.05);
 }
 
 .container .btn-danger {

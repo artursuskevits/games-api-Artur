@@ -4,7 +4,8 @@ const vue = Vue.createApp({
             gameInModal: { name: null, price: 0 },
             games: [], // This will hold the data fetched from the API
             newGame: { name: '', price: 0 }, // Form input for a new game
-            updatedGame: { id: null, name: '', price: 0 } // Data for updating a game
+            updatedGame: { id: null, name: '', price: 0 },// Data for updating a game
+            gameToDelete: null,
         };
     },
     async created() {
@@ -12,6 +13,26 @@ const vue = Vue.createApp({
         await this.fetchGames();
     },
     methods: {
+        showDeleteModal(gameId) {
+            this.gameToDelete = gameId; // Set the game to be deleted
+            const deleteModal = new bootstrap.Modal(document.getElementById('deleteGameModal'));
+            deleteModal.show(); // Show the modal
+        },
+        closeDeleteModal() {
+            const deleteModal = bootstrap.Modal.getInstance(document.getElementById('deleteGameModal'));
+            deleteModal.hide(); // Close the modal
+            this.gameToDelete = null; // Reset game to delete
+        },
+        confirmDelete() {
+            this.deleteGame(this.gameToDelete); // Call delete method
+            this.closeDeleteModal(); // Close the modal after deletion
+        },
+        deleteGame(gameId) {
+            // Your logic to delete the game, e.g., an API call
+            console.log(`Deleting game with ID: ${gameId}`);
+            // Remove game from the games array for UI update
+            this.games = this.games.filter(game => game.id !== gameId);
+        },
         // Fetch the games from the API
         async fetchGames() {
             try {

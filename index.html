@@ -33,7 +33,7 @@
                 <td>{{game.price}}</td>
                 <td>
                     <button class="btn btn-info" @click="showUpdateGameModal(game)">Update</button>
-                    <button class="btn btn-danger" @click="deleteGame(game.id)">Delete</button>
+                    <button class="btn btn-danger" @click="showDeleteModal(game.id)">Delete</button>
                 </td>
             </tr>
         </table>
@@ -96,6 +96,23 @@
                             </div>
                             <button type="submit" class="btn btn-primary">Update Game</button>
                         </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="deleteGameModal" class="modal fade" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Confirm Delete</h5>
+                        <button type="button" class="btn-close" @click="closeDeleteModal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to delete this game?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" @click="closeDeleteModal">No</button>
+                        <button type="button" class="btn btn-danger" @click="confirmDelete">Yes</button>
                     </div>
                 </div>
             </div>
