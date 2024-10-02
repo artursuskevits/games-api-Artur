@@ -1,91 +1,119 @@
 body {
-    background-color: #121212;
-    color: #e0e0e0;
-    font-family: 'Cinzel', serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f5f5f7;
+    color: #333;
+    margin: 0;
+    padding: 0;
 }
 
-h5, th {
-    font-family: 'Uncial Antiqua', serif;
-    font-size: 1.2rem;
-    letter-spacing: 2px;
-    color: #e0e0e0;
+h1 {
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    color: #1d1d1f;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
 }
 
 table {
-    background-color: #1f1f1f;
-    border: 1px solid #444;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
 }
 
-.table-striped > tbody > tr:nth-of-type(odd) {
-    background-color: #2a2a2a;
-}
-
-.table-striped > tbody > tr:nth-of-type(even) {
-    background-color: #202020;
+th, td {
+    padding: 16px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
 }
 
 th {
-    background-color: #3e3e3e;
-    text-transform: uppercase;
+    background-color: #f9f9f9;
+    font-weight: 600;
+    font-size: 1rem;
 }
 
 td {
     font-size: 1.1rem;
 }
 
+td:hover {
+    cursor: pointer;
+    color: #0071e3;
+    text-decoration: underline;
+}
+
+.btn-primary, .btn-danger {
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #0071e3;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #005bb5;
+}
+
+.btn-danger {
+    background-color: #ff3b30;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #d63228;
+}
+
 .modal-content {
-    background-color: #1c1c1c;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.modal-header {
+    border-bottom: none;
+    background-color: #0071e3;
     color: #fff;
 }
 
-.modal-header, .modal-footer {
-    background-color: #2b2b2b;
-    border-bottom: 1px solid #444;
+.modal-body {
+    font-size: 1rem;
+    padding: 20px;
 }
 
-.btn-close {
-    filter: invert(100%);
+.form-label {
+    font-weight: 500;
+    font-size: 1.1rem;
 }
 
-.btn-secondary {
-    background-color: #333;
-    border-color: #555;
+input.form-control {
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #e0e0e0;
 }
 
-.btn-secondary:hover {
-    background-color: #444;
+button[type="submit"] {
+    background-color: #0071e3;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
 }
 
-.table th, .table td {
-    border-color: #555;
-}
-
-td:hover {
-    background-color: #3b3b3b;
-    cursor: pointer;
-}
-
-/* Modal Animation */
-.modal.fade .modal-dialog {
-    transform: scale(0.9);
-    transition: transform 0.3s ease-out;
-}
-
-.modal.show .modal-dialog {
-    transform: scale(1);
-}
-
-/* Scrollbar styling */
-::-webkit-scrollbar {
-    width: 12px;
-}
-
-::-webkit-scrollbar-track {
-    background: #1a1a1a;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: #555;
-    border-radius: 10px;
-    border: 3px solid #1a1a1a;
+button[type="submit"]:hover {
+    background-color: #005bb5;
 }
