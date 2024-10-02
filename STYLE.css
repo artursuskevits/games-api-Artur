@@ -1,9 +1,11 @@
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+
+    font-family: "Yu Gothic UI Semibold";
     background-color: #82a7df;
     color: #333;
     margin: 0;
     padding: 0;
+
 }
 
 h1 {
@@ -12,7 +14,6 @@ h1 {
     margin-bottom: 20px;
     font-size: 3.5rem;
     color: #1d1d1f;
-    border-color: #e0e0e0;
     font-family: "Yu Gothic UI Semibold";
 }
 
@@ -55,7 +56,7 @@ td:hover {
     text-decoration: underline;
 }
 
-.btn-primary, .btn-danger {
+.btn-primary, .btn-danger, .btn-info{
     padding: 10px 20px;
     border-radius: 25px;
     font-size: 1rem;
@@ -63,7 +64,13 @@ td:hover {
     letter-spacing: 0.5px;
     transition: background-color 0.3s ease;
 }
-
+.btn-warning{
+    background-color: #b972e6;
+    border: none;
+}
+.btn-warning:hover{
+    background-color: #801487;
+}
 .btn-primary {
     background-color: #50cc4d;
     border: none;

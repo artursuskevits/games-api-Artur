@@ -34,38 +34,56 @@ app.get('/games/:id', (req,res) => {
     res.send(games[req.params.id -1])
 })
 
-app.post('/games', (req,res) => {
+app.post('/games', (req, res) => {
     if (!req.body.name || !req.body.price) {
-        return res.status(400).send({error: 'One or all params are missing'})
-    }
-    let game ={
-        id: games.length +1,
-        price: req.body.price,
-        name: req.body.name
+        return res.status(400).send({ error: 'One or all params are missing' });
     }
 
-    games.push(game)
+    // Use the highest existing ID plus one for the new game ID
+    const newId = games.length > 0 ? Math.max(...games.map(game => game.id)) + 1 : 1;
 
-    res.status(201)
-        .location(`${getBaseUrl(req)}/games/${games.length}`)
-        .send(game)
-})
+    const newGame = {
+        id: newId,
+        name: req.body.name,
+        price: req.body.price
+    };
 
-app.delete('/games/:id', (req,res) => {
-    if (typeof games[req.params.id -1] === 'undefined'){
-        return res.status(404).send({error: "Game not found"})
+    games.push(newGame);
+    res.status(201).send(newGame);
+});
+
+app.delete('/games/:id', (req, res) => {
+    const gameId = parseInt(req.params.id);
+    const gameIndex = games.findIndex(game => game.id === gameId);
+    if (gameIndex === -1) {
+        return res.status(404).send({ error: "Game not found" });
     }
-
-    games.splice(req.params.id -1, 1)
-
-    res.status(204).send({error: "No content"})
-})
+    games.splice(gameIndex, 1); // Remove the game by index
+    res.status(204).send(); // Respond with no content
+});
 
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
 app.listen(port, () => {
     console.log(`API up at: http://localhost:${port}/games`)
 })
+app.put('/games/:id', (req, res) => {
+    const gameId = parseInt(req.params.id);
+    const gameIndex = games.findIndex(game => game.id === gameId);
+    if (gameIndex === -1) {
+        return res.status(404).send({ error: "Game not found" });
+    }
+
+    const updatedGame = {
+        id: gameId,
+        name: req.body.name,
+        price: req.body.price
+    };
+
+    games[gameIndex] = updatedGame; // Update the game in the array
+    res.send(updatedGame); // Send the updated game back
+});
+
 
 function getBaseUrl(req) {
     return req.connection && req.connection.encrypted

@@ -6,8 +6,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Games - Inspired by Apple Design</title>
+    <link href="STYLE.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="STYLE.css" rel="stylesheet" >
 </head>
 <body>
 <div id="app">
@@ -29,6 +29,7 @@
                 <td @click="getGame(game.id)">{{game.name}}</td>
                 <td>{{game.price}}</td>
                 <td>
+                    <button class="btn btn-info" @click="showUpdateGameModal(game)">Update</button>
                     <button class="btn btn-danger" @click="deleteGame(game.id)">Delete</button>
                 </td>
             </tr>
@@ -69,6 +70,31 @@
                                 <input type="number" v-model="newGame.price" class="form-control" id="price" required>
                             </div>
                             <button type="submit" class="btn btn-primary">Add Game</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Update Game Modal -->
+        <div id="updateGameModal" class="modal fade" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Update Game</h5>
+                        <button type="button" class="btn-close" @click="closeModal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form @submit.prevent="updateGame">
+                            <div class="mb-3">
+                                <label for="updateName" class="form-label">Game Name</label>
+                                <input type="text" v-model="updatedGame.name" class="form-control" id="updateName" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="updatePrice" class="form-label">Price</label>
+                                <input type="number" v-model="updatedGame.price" class="form-control" id="updatePrice" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Update Game</button>
                         </form>
                     </div>
                 </div>
