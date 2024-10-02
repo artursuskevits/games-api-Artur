@@ -1,11 +1,8 @@
 body {
-
-    font-family: "Yu Gothic UI Semibold";
     background-color: #82a7df;
     color: #333;
     margin: 0;
     padding: 0;
-
 }
 
 h1 {
@@ -23,40 +20,38 @@ h1 {
     padding: 40px 20px;
 }
 
-table {
+.container table {
     background-color: #aebae6;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
     overflow: hidden;
 }
 
-th, td {
+.container th, .container td {
     padding: 16px;
     text-align: center;
     border-bottom: 1px solid #e0e0e0;
     background-color: #aebae6;
-
 }
 
-th {
-    background-color: #f9f9f9;
+.container th {
+    background-color: #aebae6;
     font-weight: 600;
     font-size: 1.5rem;
     font-family: "Yu Gothic UI Semibold";
-    background-color: #aebae6;
 }
 
-td {
+.container td {
     font-size: 1.1rem;
 }
 
-td:hover {
+.container td:hover {
     cursor: pointer;
     color: #0071e3;
     text-decoration: underline;
 }
 
-.btn-primary, .btn-danger, .btn-info{
+.container .btn {
     padding: 10px 20px;
     border-radius: 25px;
     font-size: 1rem;
@@ -64,28 +59,31 @@ td:hover {
     letter-spacing: 0.5px;
     transition: background-color 0.3s ease;
 }
-.btn-warning{
+
+.container .btn-warning {
     background-color: #b972e6;
     border: none;
 }
-.btn-warning:hover{
+
+.container .btn-warning:hover {
     background-color: #801487;
 }
-.btn-primary {
+
+.container .btn-primary {
     background-color: #50cc4d;
     border: none;
 }
 
-.btn-primary:hover {
+.container .btn-primary:hover {
     background-color: #12b500;
 }
 
-.btn-danger {
+.container .btn-danger {
     background-color: #ff3b30;
     border: none;
 }
 
-.btn-danger:hover {
+.container .btn-danger:hover {
     background-color: #d63228;
 }
 
