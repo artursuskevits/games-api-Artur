@@ -1,8 +1,15 @@
+
+#app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 body {
-    background-color: #82a7df;
+    background-color: #e9eff1;
     color: #333;
     margin: 0;
     padding: 0;
+    font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
 h1 {
@@ -11,45 +18,48 @@ h1 {
     margin-bottom: 20px;
     font-size: 3.5rem;
     color: #1d1d1f;
-    font-family: "Yu Gothic UI Semibold";
 }
 
+
 .container {
+    background-color: #ffffff;
     max-width: 900px;
     margin: 0 auto;
     padding: 40px 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
 }
 
+
 .container table {
-    background-color: #aebae6;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
-    overflow: hidden;
+    width: 100%;
+    border-collapse: collapse;
 }
 
 .container th, .container td {
     padding: 16px;
     text-align: center;
     border-bottom: 1px solid #e0e0e0;
-    background-color: #aebae6;
 }
 
 .container th {
-    background-color: #aebae6;
+    background-color: #f7f7f7;
     font-weight: 600;
     font-size: 1.5rem;
-    font-family: "Yu Gothic UI Semibold";
 }
 
 .container td {
     font-size: 1.1rem;
+    transition: background-color 0.3s ease;
 }
 
 .container td:hover {
+    background-color: #f1f1f1;
     cursor: pointer;
     color: #0071e3;
     text-decoration: underline;
 }
+
 
 .container .btn {
     padding: 10px 20px;
@@ -57,35 +67,31 @@ h1 {
     font-size: 1rem;
     font-weight: 500;
     letter-spacing: 0.5px;
-    transition: background-color 0.3s ease;
-}
-
-.container .btn-warning {
-    background-color: #b972e6;
-    border: none;
-}
-
-.container .btn-warning:hover {
-    background-color: #801487;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .container .btn-primary {
-    background-color: #50cc4d;
+    background-color: #0071e3;
     border: none;
+    color: white;
 }
 
 .container .btn-primary:hover {
-    background-color: #12b500;
+    background-color: #005bb5;
+    transform: scale(1.05); 
 }
 
 .container .btn-danger {
     background-color: #ff3b30;
     border: none;
+    color: white;
 }
 
 .container .btn-danger:hover {
     background-color: #d63228;
+    transform: scale(1.05);
 }
+
 
 .modal-content {
     border-radius: 12px;
@@ -103,6 +109,7 @@ h1 {
     padding: 20px;
 }
 
+
 .form-label {
     font-weight: 500;
     font-size: 1.1rem;
@@ -115,16 +122,27 @@ input.form-control {
     border: 1px solid #e0e0e0;
 }
 
-button[type="submit"] {
+
+.header {
     background-color: #0071e3;
     color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 25px;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #005bb5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-button[type="submit"]:hover {
-    background-color: #005bb5;
+.footer {
+    background-color: #0071e3;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.footer p {
+    margin: 0;
 }
