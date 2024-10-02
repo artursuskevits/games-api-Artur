@@ -14,13 +14,14 @@
     <h1>Games Collection</h1>
 </div>
 
+
 <div id="app">
     <div class="container">
 
 
-        <div class="text-center mb-4">
+        <!--<div class="text-center mb-4">
             <button class="btn btn-primary" @click="showAddGameModal">Add Game</button>
-        </div>
+        </div>-->
 
         <table id="gamesTable" class="table table-striped table-bordered">
             <tr>
@@ -52,8 +53,24 @@
                 </div>
             </div>
         </div>
+        <div class="text-center mb-4">
+            <h2>Add New Game</h2>
+            <form @submit.prevent="addGame">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 mb-3">
+                        <label for="name" class="form-label">Game Name</label>
+                        <input type="text" v-model="newGame.name" class="form-control" id="name" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="price" class="form-label">Price</label>
+                        <input type="number" v-model="newGame.price" class="form-control" id="price" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Game</button>
+            </form>
+        </div>
 
-        <div id="addGameModal" class="modal fade" tabindex="-1">
+        <!--<div id="addGameModal" class="modal fade" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -75,7 +92,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
 
         <div id="updateGameModal" class="modal fade" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered">

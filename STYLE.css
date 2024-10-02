@@ -116,10 +116,12 @@ h1 {
 }
 
 input.form-control {
+    text-align: center; /* Center text inside the input */
     border-radius: 8px;
     padding: 12px;
     font-size: 1rem;
     border: 1px solid #e0e0e0;
+    width: 100%; /* Make it full width within the column */
 }
 
 

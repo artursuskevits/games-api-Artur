@@ -13,6 +13,13 @@ const vue = Vue.createApp({
         await this.fetchGames();
     },
     methods: {
+        addGame() {
+            // Assuming you have a method to generate unique IDs
+            const newGameId = this.games.length + 1; // Replace with your ID generation logic
+            this.games.push({ id: newGameId, ...this.newGame }); // Add the new game
+            this.newGame = { name: '', price: 0 }; // Reset form
+            console.log(`Game added: ${JSON.stringify(this.newGame)}`);
+        },
         showDeleteModal(gameId) {
             this.gameToDelete = gameId; // Set the game to be deleted
             const deleteModal = new bootstrap.Modal(document.getElementById('deleteGameModal'));
