@@ -31,7 +31,7 @@
             </tr>
             <tr v-for="game in games" :key="game.id">
                 <td @click="getGame(game.id)">{{game.name}}</td>
-                <td>{{game.price}}</td>
+                <td>{{game.price}} €</td>
                 <td>
                     <button class="btn btn-info" @click="showUpdateGameModal(game)">Update</button>
                     <button class="btn btn-danger" @click="showDeleteModal(game.id)">Delete</button>
@@ -48,7 +48,7 @@
                     </div>
                     <div class="modal-body">
                         <p><strong>Name:</strong> {{gameInModal.name}}</p>
-                        <p><strong>Price:</strong> {{gameInModal.price}}</p>
+                        <p><strong>Price:</strong> {{gameInModal.price}} €</p>
                     </div>
                 </div>
             </div>
